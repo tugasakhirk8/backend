@@ -1,0 +1,70 @@
+//buat user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Asep mancing",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "user"
+}
+
+###
+//get all user
+GET http://localhost:5000/users
+
+###
+//get single user
+GET http://localhost:5000/users/99288a2d-46d4-4f1f-9018-b5108dfac0a6
+
+###
+//update user
+PATCH  http://localhost:5000/users/99288a2d-46d4-4f1f-9018-b5108dfac0a6
+Content-Type: application/json
+
+{
+    "name": "Asep karbu",
+    "password": "",
+    "confPassword": "",
+    "role": "user"
+}
+
+###
+//hapus user
+DELETE http://localhost:5000/users/99288a2d-46d4-4f1f-9018-b5108dfac0a6
+
+###
+//login
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "name": "Raihan Nur",
+    "password": "123456" 
+}
+
+###
+//user
+GET http://localhost:5000/me
+
+###
+//logout
+DELETE http://localhost:5000/logout
+
+###
+//tambahAbsen
+POST http://localhost:5000/absent
+Content-Type: application/json
+
+{
+    "date": "12/11/2023",
+    "absent": "1"
+}
+
+###
+//getabsen
+GET http://localhost:5000/absent
+
+###
+//get absent id
+GET http://localhost:5000/absent/c8ba9fd3-376e-4305-b44f-8a3c23516f53
