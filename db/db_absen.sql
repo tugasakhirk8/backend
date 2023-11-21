@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2023 at 03:51 AM
+-- Generation Time: Nov 21, 2023 at 08:32 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,7 +31,7 @@ CREATE TABLE `absent` (
   `id` int(11) NOT NULL,
   `uuid` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
-  `absent` tinyint(4) NOT NULL,
+  `absent` varchar(40) NOT NULL,
   `userId` int(11) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL
@@ -42,8 +42,9 @@ CREATE TABLE `absent` (
 --
 
 INSERT INTO `absent` (`id`, `uuid`, `date`, `absent`, `userId`, `createdAt`, `updatedAt`) VALUES
-(1, 'ed508cd8-d5c3-46a2-9a83-91036cd4b139', '12/11/2023', 1, 1, '2023-11-14 03:52:31', '2023-11-14 03:52:31'),
-(2, 'c8ba9fd3-376e-4305-b44f-8a3c23516f53', '12/11/2023', 1, 3, '2023-11-14 03:55:35', '2023-11-14 03:55:35');
+(1, 'ed508cd8-d5c3-46a2-9a83-91036cd4b139', '12/11/2023', '1', 1, '2023-11-14 03:52:31', '2023-11-14 03:52:31'),
+(2, 'c8ba9fd3-376e-4305-b44f-8a3c23516f53', '12/11/2023', '1', 3, '2023-11-14 03:55:35', '2023-11-14 03:55:35'),
+(3, 'a3ae3bec-ab9b-4c9b-b524-3ae1e7666217', '12/11/2023', 'Hadir', 1, '2023-11-21 03:32:35', '2023-11-21 03:32:35');
 
 -- --------------------------------------------------------
 
@@ -64,8 +65,8 @@ CREATE TABLE `Sessions` (
 --
 
 INSERT INTO `Sessions` (`sid`, `expires`, `data`, `createdAt`, `updatedAt`) VALUES
-('K4R0kH652XaJX18MD5D3RLxnjcExP8nm', '2023-11-15 04:15:37', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-11-14 04:15:36', '2023-11-14 04:15:37'),
-('mQng128BNv6uvwN9FuVppbXtGgV4ol_j', '2023-11-15 04:16:46', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"6fca6260-c10f-4737-b5c3-c4fc6f0766c4\"}', '2023-11-14 04:15:33', '2023-11-14 04:16:46');
+('FI82Utv2Qcx71g-7V1UTyNdzluwSm53j', '2023-11-22 07:09:27', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-11-21 07:08:23', '2023-11-21 07:09:27'),
+('mQng128BNv6uvwN9FuVppbXtGgV4ol_j', '2023-11-22 03:32:38', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"6fca6260-c10f-4737-b5c3-c4fc6f0766c4\"}', '2023-11-14 04:15:33', '2023-11-21 03:32:38');
 
 -- --------------------------------------------------------
 
@@ -123,7 +124,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `absent`
 --
 ALTER TABLE `absent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
