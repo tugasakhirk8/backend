@@ -2,20 +2,41 @@ import Users from "../models/UserModel.js";
 import argon2 from "argon2";
 
 export const Login = async (req, res) => {
-    const users = await Users.findOne({
-        where:{
-            name: req.body.name
+    try {
+        console.log(req.body);
+
+        // Check if the 'name' field is provided in the request body
+        if (!req.body.name) {
+            return res.status(400).json({ error: "Please provide a 'name' in the request body" });
         }
-    });
-    if(!users) return res.status(404).json({msg:"User tidak Ditemukan"});
-    const match = await argon2.verify(users.password, req.body.password);
-    if(!match) return res.status(400).json({msg:"Wrong Password"});
-    req.session.userId = users.uuid;
-    const uuid = users.uuid;
-    const name = users.name;
-    const role = users.role;
-    res.status(200).json({uuid, name, role});
-}
+
+        const users = await Users.findOne({
+            where: {
+                name: req.body.name
+            }
+        });
+
+        if (!users) {
+            return res.status(404).json({ error: "User tidak Ditemukan" });
+        }
+
+        const match = await argon2.verify(users.password, req.body.password);
+
+        if (!match) {
+            return res.status(400).json({ error: "Wrong Password" });
+        }
+
+        req.session.userId = users.uuid;
+        const { uuid, name, role } = users;
+
+        res.status(200).json({ uuid, name, role });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+
 
 export const Me = async(req, res) =>{
     if(!req.session.userId){
