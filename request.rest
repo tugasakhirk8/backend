@@ -58,7 +58,7 @@ Content-Type: application/json
 
 {
     "date": "12/11/2023",
-    "absent": "1"
+    "absent": "Hadir"
 }
 
 ###

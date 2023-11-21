@@ -22,7 +22,7 @@ const Absent = db.define('absent',{
         }
     },
     absent:{
-        type:DataTypes.TINYINT,
+        type:DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
