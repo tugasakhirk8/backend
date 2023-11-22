@@ -28,7 +28,9 @@ export const Login = async (req, res) => {
         req.session.userId = users.uuid;
         const { uuid, name, role } = users;
 
-        res.status(200).json({ uuid, name, role });
+        const sessionID = req.sessionID;
+        res.status(200).json({ uuid, name, role, sessionID });
+        
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
