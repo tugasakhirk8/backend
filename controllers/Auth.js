@@ -3,7 +3,6 @@ import argon2 from "argon2";
 
 export const Login = async (req, res) => {
     try {
-        console.log(req.body);
 
         // Check if the 'name' field is provided in the request body
         if (!req.body.name) {
