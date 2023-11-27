@@ -50,7 +50,7 @@ app.use(UserRoute);
 app.use(AbsentRoute);
 app.use(AuthRoute);
 
-// store.sync();
+store.sync();
 
 app.listen(process.env.APP_PORT, ()=>{
     console.log('Server sudah berhasil jalan');

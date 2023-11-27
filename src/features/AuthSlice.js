@@ -59,7 +59,7 @@ export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
 export const LogOut = createAsyncThunk("user/LogOut", async (_, thunkAPI) => {
     await axios.delete('https://localhost:5000/logout');
     // Remove an item from local storage
-    localStorage.removeItem('user');
+    // localStorage.removeItem('user');
 });
 
 

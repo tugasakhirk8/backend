@@ -9,7 +9,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const logout = () => {
-    localStorage.removeItem("user");
+    // localStorage.removeItem("user");
     dispatch(LogOut());
     dispatch(reset());
     navigate("/");
